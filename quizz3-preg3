@@ -1,0 +1,24 @@
+## descargando el archivo de GDP
+
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv", 
+              destfile = "gdp"
+              )
+gdp <- read.csv("gdp", header = TRUE, sep = ",")
+
+## descargando el archivo de Education
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv", 
+              destfile = "edu"
+)
+edu <- read.csv("edu", header = TRUE, sep = ",")
+
+## Convertirlo a dplyr
+library(dplyr)
+
+tbl_df(gdp)
+tbl_df(edu)
+### Generar el data.frame
+
+install.packages("microbenchmark")
+
+
+edu_gdp <- join(edu, gdp)
