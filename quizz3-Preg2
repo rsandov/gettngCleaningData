@@ -8,4 +8,4 @@ library(jpeg)
 
 ## Leyendo la imagen 
 
-readJPEG("imageTeacher", native = TRUE)
+readJPEG("imageTeatcher", native = TRUE)
