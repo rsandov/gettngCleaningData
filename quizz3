@@ -9,7 +9,7 @@ library(dplyr)
 tbl_df(out)
 ### Generar el data.frame
 
-quest1 <- filter(out, ACR = 3, AGS = 6 )
+quest1 <- filter(out, ACR == 3 & AGS == 6 )
 quest1
 ## Crear el vector logico agricultureLocal
 w <- select(quest1, 1:7)
