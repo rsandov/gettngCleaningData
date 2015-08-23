@@ -1,0 +1,11 @@
+## descargando el archivo de la imagen 
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fjeff.jpg", 
+              destfile = "imageTeatcher",
+              method = "curl")
+### Instalando paquete
+install.packages("jpeg")
+library(jpeg)
+
+## Leyendo la imagen 
+
+readJPEG("imageTeacher", native = TRUE)
