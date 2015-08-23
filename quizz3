@@ -14,3 +14,5 @@ quest1
 ## Crear el vector logico agricultureLocal
 w <- select(quest1, 1:7)
 print(w)
+## creando el which
+which(w, arr.ind = TRUE)
