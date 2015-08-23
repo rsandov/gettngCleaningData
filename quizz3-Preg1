@@ -1,0 +1,7 @@
+dat <- download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv", destfile = "dat")
+ ### leer el archivo CSV
+survey <- read.csv("dat")
+head(survey[1:6])
+## vector logico
+survey1 <- which(with(survey, ACR == 3 & AGS == 6))
+head(survey1[1:10])
