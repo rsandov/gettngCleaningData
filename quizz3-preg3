@@ -11,14 +11,21 @@ download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Co
 )
 edu <- read.csv("edu", header = TRUE, sep = ",")
 
-## Convertirlo a dplyr
-library(dplyr)
+## 2. Convertirlo a dplyr
+##library(dplyr)
 
-tbl_df(gdp)
-tbl_df(edu)
-### Generar el data.frame
+##tbl_df(gdp)
+##tbl_df(edu)
+###  3. Unir dos bases de datos
+edu_gpd  <- merge(edu, gdp, by= "CountryCode", all=TRUE)
+## Aparece Error: Unknown variables: CountryCode, Ranking, Economy, millionsUS
 
-install.packages("microbenchmark")
+## 4.  crear un subset 
+##gdp_CountryCode <- subset(gdp, select = X)
+#edu_CountryCode <- subset(edu, select = CountryCode)
 
+#edu_gdp <- cbind(gdp_CountryCode, edu_CountryCode)
+#edu_gdp
+## Resultado: Error in data.frame(..., check.names = FALSE) : 
+## arguments imply differing number of rows: 330, 234
 
-edu_gdp <- join(edu, gdp)
