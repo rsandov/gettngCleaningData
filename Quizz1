@@ -1,0 +1,50 @@
+## PREGUNTA 1. del Quizz Getting and cleaning data
+fileURL <- "http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
+download.file(fileURL, destfile = "./hid.csv", method = "curl")
+list.files("./data")
+
+DatosCasas<- read.csv("hid.csv")
+library("data.table")
+dt  <- fread("hid.csv")
+property  <- dt[VAL == 24]
+# RESPUESTA  = 53
+
+## Para contestar la pregunta 3 del Quizz .de Getting and cleanind Data
+
+library(xlsx)
+if(!file.exists("data")){dir.create("data")}
+fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx"
+download.file(fileURL, destfile = "./data/gasdata.xlsx", method = "curl")
+
+colIndex <- 7:15
+rowIndex <- 18:23
+dat <- read.xlsx("./data/gasdata.xlsx", sheetIndex = 1, colIndex = colIndex, rowIndex = rowIndex)
+print(dat)
+
+## para contestar la segunda parte de la pregunta 3
+sum(dat$Zip*dat$Ext,na.rm=T) 
+
+## RESPUESTA 1 A LA PREGUNTA  4
+library(XML)
+fileURL <- "http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml"
+doc <- xmlTreeParse(fileURL,useInternal=TRUE)
+rootNode <- xmlRoot(doc)
+xmlName(rootNode)
+
+## RESPUESTA 2 A LA PREGUNTA 4
+library(XML)
+library(RCurl)
+fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml "
+xData <- getURL(fileURL)
+doc <- xmlParse(xData)
+
+##usar la funci??n xpathSApply para extraer el valor zipcode
+
+xpathSApply(rootNode, "//zipcode???, xmlValue)
+
+## pREGUNTA 5
+
+fileURL <-"https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv"
+download.file(fileURL, destfile = "./data/preg5.csv", method = "curl")
+            ## ; mean(DT[DT$SEX==2,]$pwgtp15)
+
